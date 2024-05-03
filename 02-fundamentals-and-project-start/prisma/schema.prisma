@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs https//pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Property {
+  id                 String              @id @default(cuid())
+  owner              String
+  name               String
+  type               String
+  description        String
+  beds               Int
+  baths              Int
+  squareFeet         Float
+  amenities          String
+  isFeatured         Boolean
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  PropertyLocation   PropertyLocation?
+  PropertyRate       PropertyRate?
+  PropertySellerInfo PropertySellerInfo?
+  PropertyImages     PropertyImage[]
+}
+
+model PropertyLocation {
+  id         String   @id @default(cuid())
+  street     String
+  city       String
+  state      String
+  zipcode    String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  propertyId String   @unique
+}
+
+model PropertyRate {
+  id         String   @id @default(cuid())
+  weekly     Float
+  monthly    Float
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  propertyId String   @unique
+}
+
+model PropertySellerInfo {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  phone      String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  propertyId String   @unique
+}
+
+model PropertyImage {
+  id         String   @id @default(cuid())
+  name       String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  propertyId String   @unique
+}
