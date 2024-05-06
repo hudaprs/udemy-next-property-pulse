@@ -30,8 +30,8 @@ const GlobalPropertyCard = ({
 	beds,
 	baths,
 	squareFeet,
-	location,
-	rates
+	propertyLocation,
+	propertyRate
 }: PropertyCardProps) => {
 	return (
 		<Card className='p-0 w-full'>
@@ -47,7 +47,7 @@ const GlobalPropertyCard = ({
 
 				<Chip className='absolute top-3 right-3 bg-white'>
 					<p className='text-blue-400 font-bold'>
-						${rates.monthly.toLocaleString()}/mo
+						${propertyRate?.monthly?.toLocaleString()}/mo
 					</p>
 				</Chip>
 			</CardHeader>
@@ -76,17 +76,18 @@ const GlobalPropertyCard = ({
 						</div>
 					</div>
 					<div className='flex gap-4 flex-col md:flex-row justify-center items-center w-full'>
-						{Object.keys(rates)
-							.filter(rate => !['id', 'propertyId'].includes(rate))
-							.map(rate => (
-								<div
-									className='flex justify-center items-center gap-1'
-									key={rate}
-								>
-									<RiMoneyDollarBoxLine />
-									{rate}
-								</div>
-							))}
+						{propertyRate &&
+							Object.keys(propertyRate)
+								.filter(rate => !['id', 'propertyId'].includes(rate))
+								.map(rate => (
+									<div
+										className='flex justify-center items-center gap-1'
+										key={rate}
+									>
+										<RiMoneyDollarBoxLine />
+										{rate}
+									</div>
+								))}
 					</div>
 				</div>
 
@@ -94,7 +95,7 @@ const GlobalPropertyCard = ({
 
 				<div className='flex flex-col md:flex-row items-center justify-between w-full gap-2'>
 					<p className='text-red-600 font-semibold flex items-center gap-1'>
-						<RiMapPinLine /> {location.city} {location.state}
+						<RiMapPinLine /> {propertyLocation?.city} {propertyLocation?.state}
 					</p>
 
 					<Button className='w-full md:w-auto'>Details</Button>

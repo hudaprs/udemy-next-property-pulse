@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -27,6 +27,8 @@ model Property {
   propertyRate       PropertyRate?
   propertySellerInfo PropertySellerInfo?
   propertyImages     PropertyImage[]
+
+  @@map("properties")
 }
 
 model PropertyLocation {
@@ -37,6 +39,8 @@ model PropertyLocation {
   zipcode    String
   property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
   propertyId String   @unique
+
+  @@map("propertyLocations")
 }
 
 model PropertyRate {
@@ -46,6 +50,8 @@ model PropertyRate {
   nightly    Float?
   property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
   propertyId String   @unique
+
+  @@map("propertyRates")
 }
 
 model PropertySellerInfo {
@@ -55,6 +61,8 @@ model PropertySellerInfo {
   phone      String
   property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
   propertyId String   @unique
+
+  @@map("propertySellerInfos")
 }
 
 model PropertyImage {
@@ -62,4 +70,6 @@ model PropertyImage {
   name       String
   property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
   propertyId String
+
+  @@map("propertyImages")
 }
