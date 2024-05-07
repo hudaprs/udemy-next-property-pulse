@@ -1,5 +1,5 @@
 // Next UI
-import {
+import type {
 	SelectProps as NextUISelectProps,
 	SelectItemProps as NextUISelectItemProps
 } from '@nextui-org/react'

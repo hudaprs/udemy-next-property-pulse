@@ -24,7 +24,14 @@ import {
 	RiMapPinLine
 } from '@remixicon/react'
 
+// Utils
+import { paths } from '@/utils/path.util'
+
+// Next
+import Link from 'next/link'
+
 const GlobalPropertyCard = ({
+	id,
 	name,
 	type,
 	beds,
@@ -98,7 +105,13 @@ const GlobalPropertyCard = ({
 						<RiMapPinLine /> {propertyLocation?.city} {propertyLocation?.state}
 					</p>
 
-					<Button className='w-full md:w-auto'>Details</Button>
+					<Button
+						className='w-full md:w-auto'
+						as={Link}
+						href={paths.property.show(id)}
+					>
+						Details
+					</Button>
 				</div>
 			</CardBody>
 		</Card>

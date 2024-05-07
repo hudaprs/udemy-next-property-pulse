@@ -1,7 +1,10 @@
 // Next UI
-import { Input, InputProps } from '@nextui-org/react'
+import { Input } from '@nextui-org/react'
 
-const BaseInput = (props: InputProps) => {
+// Types
+import { BaseInputProps } from './types'
+
+const BaseInput = (props: BaseInputProps) => {
 	return <Input {...props} />
 }
 

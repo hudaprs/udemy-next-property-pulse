@@ -15,6 +15,7 @@ import Link from 'next/link'
 import { getPropertyList } from '@/db/queries/properties/list.query'
 
 const HomeRecentProperties = async () => {
+	// Get property list
 	const propertyList = await getPropertyList({ onlyRecent: true })
 
 	return (
