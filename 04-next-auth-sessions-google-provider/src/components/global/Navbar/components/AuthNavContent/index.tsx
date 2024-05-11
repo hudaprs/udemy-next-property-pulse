@@ -18,7 +18,6 @@ import {
 	DropdownItem,
 	Avatar,
 	Badge,
-	Button,
 	Spinner,
 	Skeleton
 } from '@nextui-org/react'
@@ -45,9 +44,7 @@ import { paths } from '@/utils/path.util'
 const AuthNavContent = memo(({ user }: AuthNavContentProps) => {
 	const [mounted, setMounted] = useState(false)
 	useEffect(() => {
-		setTimeout(() => {
-			setMounted(true)
-		}, 300)
+		setMounted(true)
 	}, [])
 
 	// Common State
@@ -140,17 +137,13 @@ const AuthNavContent = memo(({ user }: AuthNavContentProps) => {
 								<DropdownMenu aria-label='Profile Actions'>
 									<DropdownItem
 										key='your-profile'
-										onClick={() => {
-											//
-										}}
+										onClick={() => navigateAction(paths.root.index())}
 									>
 										Your Profile
 									</DropdownItem>
 									<DropdownItem
 										key='saved-properties'
-										onClick={() => {
-											//
-										}}
+										onClick={() => navigateAction(paths.property.saved())}
 									>
 										Saved Properties
 									</DropdownItem>
@@ -160,6 +153,7 @@ const AuthNavContent = memo(({ user }: AuthNavContentProps) => {
 										key='sign-out'
 										onClick={onSignOut}
 									>
+										{loading.isSignOut && <Spinner />}
 										Sign Out
 									</DropdownItem>
 								</DropdownMenu>

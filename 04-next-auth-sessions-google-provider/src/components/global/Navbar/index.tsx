@@ -18,8 +18,6 @@ const GlobalNavbar = async () => {
 	// Auth
 	const user = await auth()
 
-	console.log('user', user)
-
 	return (
 		<NavbarContainer>
 			<NavbarContent className='hidden sm:flex gap-4' justify='center'>

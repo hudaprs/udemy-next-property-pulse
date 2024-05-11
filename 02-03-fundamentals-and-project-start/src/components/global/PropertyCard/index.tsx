@@ -45,11 +45,11 @@ const GlobalPropertyCard = ({
 			<CardHeader className='flex-col items-start p-0 relative'>
 				<Image
 					alt='Card background'
-					className='w-full h-[250px]'
+					className='w-full h-[250px] object-cover'
 					src='https://picsum.photos/seed/picsum/500/500'
 					width={250}
 					height={250}
-					objectFit='cover'
+					aria-label='card-background'
 				/>
 
 				<Chip className='absolute top-3 right-3 bg-white'>
