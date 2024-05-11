@@ -17,10 +17,10 @@ export const getPropertyList = (options?: GetPropertyList) => {
 			createdAt: 'desc'
 		},
 		include: {
-			propertyImages: true,
-			propertyLocation: true,
-			propertyRate: true,
-			propertySellerInfo: true
+			images: true,
+			location: true,
+			rate: true,
+			sellerInfo: true
 		},
 		take: options?.onlyRecent ? 3 : undefined
 	})

@@ -8,7 +8,6 @@ import {
 	CardBody,
 	Chip,
 	Divider,
-	CardFooter,
 	Button
 } from '@nextui-org/react'
 
@@ -37,24 +36,23 @@ const GlobalPropertyCard = ({
 	beds,
 	baths,
 	squareFeet,
-	propertyLocation,
-	propertyRate
+	location,
+	rate
 }: PropertyCardProps) => {
 	return (
 		<Card className='p-0 w-full'>
 			<CardHeader className='flex-col items-start p-0 relative'>
 				<Image
 					alt='Card background'
-					className='w-full h-[250px]'
+					className='w-full h-[250px] object-cover'
 					src='https://picsum.photos/seed/picsum/500/500'
 					width={250}
 					height={250}
-					objectFit='cover'
 				/>
 
 				<Chip className='absolute top-3 right-3 bg-white'>
 					<p className='text-blue-400 font-bold'>
-						${propertyRate?.monthly?.toLocaleString()}/mo
+						${rate?.monthly?.toLocaleString()}/mo
 					</p>
 				</Chip>
 			</CardHeader>
@@ -83,8 +81,8 @@ const GlobalPropertyCard = ({
 						</div>
 					</div>
 					<div className='flex gap-4 flex-col md:flex-row justify-center items-center w-full'>
-						{propertyRate &&
-							Object.keys(propertyRate)
+						{rate &&
+							Object.keys(rate)
 								.filter(rate => !['id', 'propertyId'].includes(rate))
 								.map(rate => (
 									<div
@@ -102,7 +100,7 @@ const GlobalPropertyCard = ({
 
 				<div className='flex flex-col md:flex-row items-center justify-between w-full gap-2'>
 					<p className='text-red-600 font-semibold flex items-center gap-1'>
-						<RiMapPinLine /> {propertyLocation?.city} {propertyLocation?.state}
+						<RiMapPinLine /> {location?.city} {location?.state}
 					</p>
 
 					<Button

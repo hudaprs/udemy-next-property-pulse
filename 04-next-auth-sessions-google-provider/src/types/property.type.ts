@@ -8,8 +8,8 @@ import type {
 } from '@prisma/client'
 
 export type PropertyFull = Property & {
-	propertyRate: PropertyRate | null
-	propertyLocation: PropertyLocation | null
-	propertySellerInfo: PropertySellerInfo | null
-	propertyImages: PropertyImage[]
+	rate: PropertyRate | null
+	location: PropertyLocation | null
+	sellerInfo: PropertySellerInfo | null
+	images: PropertyImage[]
 }

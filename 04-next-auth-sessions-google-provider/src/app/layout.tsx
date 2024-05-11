@@ -7,11 +7,9 @@ import type { Metadata } from 'next'
 // Fonts
 import { Poppins } from 'next/font/google'
 
-// Next UI
-import { NextUIProvider } from '@nextui-org/react'
-
 // Components
 import { GlobalNavbar } from '@/components/global/Navbar'
+import { BaseProvider } from '@/components/base/Provider'
 
 // Assets
 import '@/assets/styles/globals.css'
@@ -36,7 +34,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={poppins.className}>
-				<NextUIProvider>
+				<BaseProvider>
 					{/* Navbar */}
 					<GlobalNavbar />
 					{/* End Navbar */}
@@ -47,7 +45,7 @@ export default function RootLayout({
 						&copy; {new Date().getFullYear()} PropertyPulse. All Rights
 						Reserved.
 					</footer>
-				</NextUIProvider>
+				</BaseProvider>
 			</body>
 		</html>
 	)

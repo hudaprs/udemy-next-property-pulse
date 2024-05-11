@@ -15,10 +15,10 @@ export const getPropertyDetail = (options: GetPropertyDetail) => {
 	return db.property.findFirst({
 		where: { id: options.id },
 		include: {
-			propertyImages: true,
-			propertyLocation: true,
-			propertyRate: true,
-			propertySellerInfo: true
+			images: true,
+			location: true,
+			rate: true,
+			sellerInfo: true
 		}
 	})
 }

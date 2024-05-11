@@ -90,9 +90,8 @@ export default async function PagePropertyDetail(
 								<div className='text-gray-500 mb-4 flex align-middle justify-center md:justify-start'>
 									<i className='fa-solid fa-location-dot text-lg text-orange-700 mr-2'></i>
 									<p className='text-orange-700'>
-										{property.propertyLocation?.street}{' '}
-										{property.propertyLocation?.state},{' '}
-										{property.propertyLocation?.zipcode}
+										{property.location?.street} {property.location?.state},{' '}
+										{property.location?.zipcode}
 									</p>
 								</div>
 
@@ -103,19 +102,19 @@ export default async function PagePropertyDetail(
 									<div className='flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0'>
 										<div className='text-gray-500 mr-2 font-bold'>Nightly</div>
 										<div className='text-2xl font-bold'>
-											${property.propertyRate?.nightly?.toLocaleString() || 0}
+											${property.rate?.nightly?.toLocaleString() || 0}
 										</div>
 									</div>
 									<div className='flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0'>
 										<div className='text-gray-500 mr-2 font-bold'>Weekly</div>
 										<div className='text-2xl font-bold text-blue-500'>
-											${property.propertyRate?.weekly?.toLocaleString() || 0}
+											${property.rate?.weekly?.toLocaleString() || 0}
 										</div>
 									</div>
 									<div className='flex items-center justify-center mb-4 pb-4 md:pb-0'>
 										<div className='text-gray-500 mr-2 font-bold'>Monthly</div>
 										<div className='text-2xl font-bold text-blue-500'>
-											${property.propertyRate?.monthly?.toLocaleString() || 0}
+											${property.rate?.monthly?.toLocaleString() || 0}
 										</div>
 									</div>
 								</div>

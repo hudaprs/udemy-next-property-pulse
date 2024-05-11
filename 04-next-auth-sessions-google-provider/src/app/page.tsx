@@ -7,7 +7,7 @@ import { HomeInfoBox } from '@/components/home/InfoBox'
 import { HomeRecentProperties } from '@/components/home/RecentProperties'
 import Loading from '@/app/loading'
 
-export default function PageHome() {
+export default async function PageHome() {
 	return (
 		<>
 			<HomeHero />

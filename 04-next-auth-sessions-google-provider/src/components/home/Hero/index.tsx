@@ -5,7 +5,7 @@ import { Button } from '@nextui-org/react'
 
 const HomeHero = () => {
 	return (
-		<div className='h-[35vh] border-b-2 border-b-[#f4f4f4]'>
+		<div className='h-[35vh] my-8 border-b-2 border-b-[#f4f4f4]'>
 			<div className='flex flex-col items-center justify-center h-full gap-4'>
 				<h1 className='text-6xl font-bold'>Find The Perfect Rental</h1>
 				<h4>Discover the perfect property that suits your needs</h4>
